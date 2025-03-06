@@ -1,5 +1,3 @@
-# appcenter-artifact-backup
-
 # AppCenter Artifact Backup Script
 
 ## Overview
@@ -14,40 +12,52 @@ Microsoft AppCenter is shutting down by **March 2025**, and this script helps yo
 
 ## Prerequisites
 
-- AppCenter CLI installed ([Installation Guide](https://learn.microsoft.com/en-us/appcenter/cli/))
-- An active AppCenter API token ([Generate Token](https://appcenter.ms/settings))
+- A Unix-based system (Linux/macOS) or Windows with Git Bash
+- `curl` installed (usually pre-installed on Unix-based systems)
 
 ## Installation
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/anchitkm/appcenter-artifact-backup.git
+   git clone https://github.com/your-username/appcenter-artifact-backup.git
    cd appcenter-artifact-backup
    ```
-2. Install required dependencies:
+2. Make the script executable:
    ```sh
-   pip install -r requirements.txt
+   chmod +x backup_script.sh
    ```
 
 ## Usage
 
-1. Authenticate with AppCenter:
+1. Open the script and update the following variables:
    ```sh
-   appcenter login
+   ORG_NAME="YOUR_ORG_NAME"
+   APP_NAME="YOUR_APP_NAME"
+   API_TOKEN="YOUR_APPCENTER_API_TOKEN"
    ```
-2. Run the script with your API token:
+2. Run the script:
    ```sh
    ./backup_script.sh
    ```
-3. Your artifacts will be downloaded to a local folder named `appcenter_backup/`.
+3. Your artifacts will be downloaded to a local folder named after your app.
 
-## Configuration
+## Script Details
 
-You can modify `config.json` to specify:
+This script:
+- Fetches all releases for a given AppCenter app.
+- Extracts release IDs and corresponding version numbers.
+- Retrieves download URLs and downloads the artifacts.
+- Saves each build in a separate folder named after the version.
 
-- Organization name
-- App names
-- Destination folder
+## Example Output Structure
+
+```
+/app_name/
+  ├── build_1.0.0/
+  │   ├── 1.0.0.apk
+  ├── build_1.1.0/
+  │   ├── 1.1.0.apk
+```
 
 ## License
 
@@ -59,5 +69,5 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## Contact
 
-For any queries, reach out via [GitHub Issues](https://github.com/anchitkm/appcenter-artifact-backup/issues).
+For any queries, reach out via [GitHub Issues](https://github.com/your-username/appcenter-artifact-backup/issues).
 
