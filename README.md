@@ -37,7 +37,7 @@ Microsoft AppCenter is shutting down by **March 2025**, and this script helps yo
    ```
 2. Run the script with your API token:
    ```sh
-   python backup_script.py --api-token YOUR_APPCENTER_API_TOKEN
+   ./backup_script.sh
    ```
 3. Your artifacts will be downloaded to a local folder named `appcenter_backup/`.
 
